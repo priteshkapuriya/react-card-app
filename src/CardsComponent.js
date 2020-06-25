@@ -5,9 +5,18 @@ export default class CardsComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cardNumbers_1_3: [1, 2, 3],
-      cardNumbers_4_6: [4, 5, 6],
-      cardNumbers_7_9: [7, 8, 9],
+      cardNumber: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+      colorMapping: {
+        1: "gothic",
+        2: "jellyBean",
+        3: "mineShaft",
+        4: "jellyBean",
+        5: "mineShaft",
+        6: "silver",
+        7: "silver",
+        8: "gothic",
+        9: "mineShaft"
+      }
     };
   }
 
@@ -20,136 +29,87 @@ export default class CardsComponent extends React.Component {
   };
 
   shuffle = () => {
-    var arr_1_3 = this.state.cardNumbers_1_3;
-    var arr_4_6 = this.state.cardNumbers_4_6;
-    var arr_7_9 = this.state.cardNumbers_7_9;
-
-    arr_1_3 = this.shuffleLogic(arr_1_3);
-    arr_4_6 = this.shuffleLogic(arr_4_6);
-    arr_7_9 = this.shuffleLogic(arr_7_9);
-
+    var arr = this.state.cardNumber;
+    arr = this.shuffleLogic(arr);
     this.setState({
-      cardNumbers_1_3: arr_1_3,
-      cardNumbers_4_6: arr_4_6,
-      cardNumbers_7_9: arr_7_9,
+      cardNumber: arr
     });
   };
 
   sort = () => {
-    let arr_1_3 = this.state.cardNumbers_1_3;
-    let arr_4_6 = this.state.cardNumbers_4_6;
-    let arr_7_9 = this.state.cardNumbers_7_9;
-
-    arr_1_3.sort();
-    arr_4_6.sort();
-    arr_7_9.sort();
+    let arr = this.state.cardNumber;
+    arr.sort();
     this.setState({
-      cardNumbers_1_3: arr_1_3,
-      cardNumbers_4_6: arr_4_6,
-      cardNumbers_7_9: arr_7_9,
+      cardNumber: arr
     });
   };
 
   render() {
-    const numbers_1_3 = this.state.cardNumbers_1_3;
-    const numbers_4_6 = this.state.cardNumbers_4_6;
-    const numbers_7_9 = this.state.cardNumbers_7_9;
+    const numbers = this.state.cardNumber;
+    const colorMapping = this.state.colorMapping;
+    let colorArr= [];
+    numbers.forEach((number)=>{
+      Object.keys(colorMapping).forEach((key) => {
+        if(+key === number){
+          colorArr.push(colorMapping[key]);
+        }
+      })
+    });
+    console.log(colorArr);
     return (
       <div className="container">
         <div className="row">
           <div id="first" className="col-sm-9 numberCardsContainer">
             <div className="cardsRow">
-              {numbers_1_3.map((number, i) => {
-                if (number === 1) {
-                  return (
-                    <div className="column">
-                      <div className="numberCard gothic">
-                        <h1 className="hnumber">{number}</h1>
-                      </div>
-                    </div>
-                  );
-                }
-                if (number === 2) {
-                  return (
-                    <div className="column">
-                      <div className="numberCard jellyBean">
-                        <h1 className="hnumber">{number}</h1>
-                      </div>
-                    </div>
-                  );
-                }
-                if (number === 3) {
-                  return (
-                    <div className="column">
-                      <div className="numberCard mineShaft">
-                        <h1 className="hnumber">{number}</h1>
-                      </div>
-                    </div>
-                  );
-                }
-              })}
+              <div className="column">
+                <div className={"numberCard " + colorArr[0]}>
+                  <h1 className="hnumber">{numbers[0]}</h1>
+                </div>
+              </div>
+              <div className="column">
+                <div className={"numberCard " + colorArr[1]}>
+                  <h1 className="hnumber">{numbers[1]}</h1>
+                </div>
+              </div>
+              <div className="column">
+                <div className={"numberCard " + colorArr[2]}>
+                  <h1 className="hnumber">{numbers[2]}</h1>
+                </div>
+              </div>
             </div>
             <div className="cardsRow">
-              {numbers_4_6.map((number, i) => {
-                if (number === 4) {
-                  return (
-                    <div className="column">
-                      <div className="numberCard jellyBean">
-                        <h1 className="hnumber">{number}</h1>
-                      </div>
-                    </div>
-                  );
-                }
-                if (number === 5) {
-                  return (
-                    <div className="column">
-                      <div className="numberCard mineShaft">
-                        <h1 className="hnumber">{number}</h1>
-                      </div>
-                    </div>
-                  );
-                }
-                if (number === 6) {
-                  return (
-                    <div className="column">
-                      <div className="numberCard silver">
-                        <h1 className="hnumber">{number}</h1>
-                      </div>
-                    </div>
-                  );
-                }
-              })}
+              <div className="column">
+                <div className={"numberCard " + colorArr[3]}>
+                  <h1 className="hnumber">{numbers[3]}</h1>
+                </div>
+              </div>
+              <div className="column">
+                <div className={"numberCard " + colorArr[4]}>
+                  <h1 className="hnumber">{numbers[4]}</h1>
+                </div>
+              </div>
+              <div className="column">
+                <div className={"numberCard " + colorArr[5]}>
+                  <h1 className="hnumber">{numbers[5]}</h1>
+                </div>
+              </div>
             </div>
             <div className="cardsRow">
-              {numbers_7_9.map((number, i) => {
-                if (number === 7) {
-                  return (
-                    <div className="column">
-                      <div className="numberCard silver">
-                        <h1 className="hnumber">{number}</h1>
-                      </div>
-                    </div>
-                  );
-                }
-                if (number === 8) {
-                  return (
-                    <div className="column">
-                      <div className="numberCard gothic">
-                        <h1 className="hnumber">{number}</h1>
-                      </div>
-                    </div>
-                  );
-                }
-                if (number === 9) {
-                  return (
-                    <div className="column">
-                      <div className="numberCard mineShaft">
-                        <h1 className="hnumber">{number}</h1>
-                      </div>
-                    </div>
-                  );
-                }
-              })}
+              <div className="column">
+                <div className={"numberCard " + colorArr[6]}>
+                  <h1 className="hnumber">{numbers[6]}</h1>
+                </div>
+              </div>
+              <div className="column">
+                <div className={"numberCard " + colorArr[7]}>
+                  <h1 className="hnumber">{numbers[7]}</h1>
+                </div>
+              </div>
+              <div className="column">
+                <div className={"numberCard " + colorArr[8]}>
+                  <h1 className="hnumber">{numbers[8]}</h1>
+                </div>
+              </div>
             </div>
           </div>
           <div id="second" className="col-sm-3">
