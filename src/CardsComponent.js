@@ -15,8 +15,8 @@ export default class CardsComponent extends React.Component {
         6: "silver",
         7: "silver",
         8: "gothic",
-        9: "mineShaft"
-      }
+        9: "mineShaft",
+      },
     };
   }
 
@@ -32,7 +32,7 @@ export default class CardsComponent extends React.Component {
     var arr = this.state.cardNumber;
     arr = this.shuffleLogic(arr);
     this.setState({
-      cardNumber: arr
+      cardNumber: arr,
     });
   };
 
@@ -40,20 +40,20 @@ export default class CardsComponent extends React.Component {
     let arr = this.state.cardNumber;
     arr.sort();
     this.setState({
-      cardNumber: arr
+      cardNumber: arr,
     });
   };
 
   render() {
     const numbers = this.state.cardNumber;
     const colorMapping = this.state.colorMapping;
-    let colorArr= [];
-    numbers.forEach((number)=>{
+    let colorArr = [];
+    numbers.forEach((number) => {
       Object.keys(colorMapping).forEach((key) => {
-        if(+key === number){
+        if (+key === number) {
           colorArr.push(colorMapping[key]);
         }
-      })
+      });
     });
     console.log(colorArr);
     return (
@@ -114,10 +114,14 @@ export default class CardsComponent extends React.Component {
           </div>
           <div id="second" className="col-sm-3">
             <div className="shuffleButton">
-              <button onClick={this.shuffle}>SHUFFLE</button>
+              <button className="genButton" onClick={this.shuffle}>
+                SHUFFLE
+              </button>
             </div>
             <div className="sortButton">
-              <button onClick={this.sort}>SORT</button>
+              <button className="genButton" onClick={this.sort}>
+                SORT
+              </button>
             </div>
           </div>
         </div>

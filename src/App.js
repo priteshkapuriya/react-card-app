@@ -1,7 +1,7 @@
-import React from 'react';
-import CardsComponent from './CardsComponent';
+import React from "react";
+import CardsComponent from "./CardsComponent";
 
-import './App.css';
+import "./App.css";
 
 function App() {
   return (

@@ -41,11 +41,11 @@
 h1 {
   color: #fff;
 }
-button {
+.genButton {
   width: 170px;
   height: 45px;
   background-color: #72c3dc;
-  border-radius: 5px !important;
+  border-radius: 5px;
   border: none;
   color: white;
   padding: 0 0 5px 0;
@@ -62,7 +62,7 @@ button {
 
 @media screen and (max-width: 1440px) {
   .numberCard {
-    padding: 80px;
+    padding: 27%;
   }
 }
 
@@ -73,16 +73,16 @@ button {
 }
 @media screen and (max-width: 1024px) {
   .numberCard {
-    padding: 40px;
+    padding: 35px;
   }
 }
 @media screen and (max-width: 990px) {
-  button {
+  .genButton {
     width: 140px;
   }
 }
 @media screen and (max-width: 765px) {
-  button {
+  .genButton {
     width: 100px;
   }
 }
@@ -113,7 +113,7 @@ button {
   .sortButton {
     margin: 10px 0px 10px 5px;
   }
-  button {
+  .genButton {
     width: 80px;
     height: 50px;
   }
