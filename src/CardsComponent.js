@@ -9,13 +9,13 @@ export default class CardsComponent extends React.Component {
       colorMapping: {
         1: "gothic",
         2: "jellyBean",
-        3: "mineShaft",
+        3: "blueWood",
         4: "jellyBean",
-        5: "mineShaft",
+        5: "blueWood",
         6: "silver",
         7: "silver",
         8: "gothic",
-        9: "mineShaft",
+        9: "blueWood",
       },
     };
   }
@@ -55,11 +55,10 @@ export default class CardsComponent extends React.Component {
         }
       });
     });
-    console.log(colorArr);
     return (
       <div className="container">
-        <div className="row">
-          <div id="first" className="col-sm-9 numberCardsContainer">
+        <div className="rowContainer">
+          <div id="first" className="numberCardsContainer">
             <div className="cardsRow">
               <div className="column">
                 <div className={"numberCard " + colorArr[0]}>
@@ -112,7 +111,7 @@ export default class CardsComponent extends React.Component {
               </div>
             </div>
           </div>
-          <div id="second" className="col-sm-3">
+          <div id="second" className="buttonContainer">
             <div className="shuffleButton">
               <button className="genButton" onClick={this.shuffle}>
                 SHUFFLE
@@ -125,7 +124,7 @@ export default class CardsComponent extends React.Component {
             </div>
           </div>
         </div>
-        <div className="appBy">Shuffle and Sort By Pritesh Kapuriya</div>
+        <div className="appBy">Shuffle and sort by Pritesh Kapuriya</div>
       </div>
     );
   }

@@ -1,18 +1,52 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+.appName {
+  text-align: center;
+  margin: 10px 0px;
+  font-size: 13px;
+}
 .container {
-  border-top: 5px solid #bfbfbf;
+  border-top: 3px solid #bfbfbf;
   background-color: #efefef;
+  max-width: 960px;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.buttonContainer {
+  flex: 0 0 25%;
+  max-width: 25%;
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.rowContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+.numberCardsContainer {
+  flex: 0 0 75%;
+  max-width: 75%;
+  position: relative;
+  width: 100%;
 }
 .appBy {
   text-align: center;
-  padding-bottom: 80px;
+  padding-bottom: 40px;
   font-style: italic;
-  font-size: 15px;
+  font-size: 12px;
+  margin-top: 10px;
 }
 .column {
   width: 32%;
 }
 .cardsRow {
-  margin: 0 -5px;
   display: flex;
 }
 
@@ -23,11 +57,11 @@
 }
 
 .numberCard {
-  padding: 88px;
+  padding: 45px;
   text-align: center;
 }
-.mineShaft {
-  background-color: #333333;
+.blueWood {
+  background-color: #2F454E;
 }
 .jellyBean {
   background-color: #2b8ead;
@@ -59,39 +93,32 @@ h1 {
 .shuffleButton {
   margin-top: 20px;
 }
-
-@media screen and (max-width: 1440px) {
-  .numberCard {
-    padding: 27%;
-  }
-}
-
-@media screen and (max-width: 1280px) {
-  .numberCard {
-    padding: 65px;
-  }
-}
 @media screen and (max-width: 1024px) {
-  .numberCard {
-    padding: 35px;
-  }
-}
-@media screen and (max-width: 990px) {
   .genButton {
     width: 140px;
   }
-}
-@media screen and (max-width: 765px) {
-  .genButton {
-    width: 100px;
+  .container {
+    max-width: 725px;
+  }
+  .numberCard {
+    padding: 30px;
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 767px) {
   .cardsRow {
     display: block;
   }
-  .row {
+  .rowContainer {
     margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .numberCardsContainer {
+    flex: none;
+    max-width: none;
+    padding-right: 15px;
+    padding-left: 15px;
   }
   .column {
     width: 100%;
@@ -106,7 +133,7 @@ h1 {
     display: inline-flex;
   }
   .shuffleButton {
-    margin: 10px 0px 15px 28%;
+    margin: 10px 0 15px 180%;
   }
   .sortButton {
     margin: 10px 0px 10px 5px;
@@ -119,11 +146,17 @@ h1 {
     background-color: #333333;
     color: #fff;
     height: 40px;
-    padding-top: 6px;
+    padding-top: 15px;
+    font-size: 18px;
+    font-weight: normal;
+    margin: 0;
+    letter-spacing: 1.5px;
   }
   .container {
     border-top: none;
     background-color: #fff;
+    padding: 0;
+    margin: 0;
   }
   .column {
     margin-bottom: 10px;
@@ -134,7 +167,7 @@ h1 {
   }
   .hnumber {
     color: #000;
-    font-size: 1rem;
+    font-size: 1.45rem;
     font-weight: normal;
     line-height: 1;
     margin-top: 0;
@@ -143,8 +176,8 @@ h1 {
   .appBy {
     padding-bottom: 0px;
   }
-  .mineShaft {
-    border-left: 10px solid #333333;
+  .blueWood {
+    border-left: 10px solid #2F454E;
   }
   .jellyBean {
     border-left: 10px solid #2b8ead;
@@ -156,13 +189,18 @@ h1 {
     border-left: 10px solid #6f98a8;
   }
 }
-@media only screen and (min-device-width: 376px) and (max-device-width: 600px) {
+@media only screen and (min-device-width: 375px) and (max-device-width: 767px) {
   .shuffleButton {
-    margin-left: 30%;
+    margin-left: 155%;
+  }
+}
+@media screen and (max-width: 375px) {
+  .shuffleButton {
+    margin-left: 150%;
   }
 }
 @media screen and (max-width: 321px) {
   .shuffleButton {
-    margin-left: 24%;
+    margin-left: 135%;
   }
 }
